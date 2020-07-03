@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cheffe House</string>
+
+    <string name="facebook_app_id">274154050593322</string>
+
+    <string name="fb_login_protocol_scheme">fb274154050593322</string>
+
+</resources>

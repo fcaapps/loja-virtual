@@ -26,6 +26,16 @@ class EditProductScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(editing ? 'Editar Produto' : 'Criar Produto'),
           centerTitle: true,
+          actions: <Widget>[
+            if(editing)
+              IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: (){
+                  context.read<ProductManager>().delete(product);
+                  Navigator.of(context).pop();
+                },
+              )
+          ],
         ),
         backgroundColor: Colors.white,
         body: Form(
@@ -87,8 +97,8 @@ class EditProductScreen extends StatelessWidget {
                           fontSize: 16
                       ),
                       decoration: const InputDecoration(
-                          hintText: 'Descrição',
-                          border: InputBorder.none
+                        hintText: 'Descrição',
+                        border: InputBorder.none
                       ),
                       maxLines: null,
                       validator: (desc){
@@ -122,8 +132,8 @@ class EditProductScreen extends StatelessWidget {
                             disabledColor: primaryColor.withAlpha(100),
                             child: product.loading
                                 ? CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation(Colors.white),
-                            )
+                                    valueColor: AlwaysStoppedAnimation(Colors.white),
+                                  )
                                 : const Text(
                               'Salvar',
                               style: TextStyle(fontSize: 18.0),

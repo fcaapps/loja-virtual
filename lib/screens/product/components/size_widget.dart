@@ -4,6 +4,7 @@ import 'package:lojavirtual/models/product.dart';
 import 'package:provider/provider.dart';
 
 class SizeWidget extends StatelessWidget {
+
   const SizeWidget({this.size});
 
   final ItemSize size;
@@ -14,13 +15,12 @@ class SizeWidget extends StatelessWidget {
     final selected = size == product.selectedSize;
 
     Color color;
-    if (!size.hasStock) {
+    if(!size.hasStock)
       color = Colors.red.withAlpha(50);
-    } else if (selected) {
+    else if(selected)
       color = Theme.of(context).primaryColor;
-    } else {
+    else
       color = Colors.grey;
-    }
 
     return GestureDetector(
       onTap: (){
@@ -31,7 +31,8 @@ class SizeWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-              color: color),
+            color: color
+          ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

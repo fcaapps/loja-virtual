@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class SearchDialog extends StatelessWidget {
 
-  final String initialText;
-
   const SearchDialog(this.initialText);
+
+  final String initialText;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +25,12 @@ class SearchDialog extends StatelessWidget {
                 prefixIcon: IconButton(
                   icon: Icon(Icons.arrow_back),
                   color: Colors.grey[700],
-                  onPressed: () {
+                  onPressed: (){
                     Navigator.of(context).pop();
                   },
-                ),
+                )
               ),
-              onFieldSubmitted: (text) {
+              onFieldSubmitted: (text){
                 Navigator.of(context).pop(text);
               },
             ),

@@ -1,7 +1,8 @@
 class ItemSize {
+
   ItemSize({this.name, this.price, this.stock});
 
-  ItemSize.fromMap(Map<String, dynamic> map) {
+  ItemSize.fromMap(Map<String, dynamic> map){
     name = map['name'] as String;
     price = map['price'] as num;
     stock = map['stock'] as int;
@@ -13,7 +14,7 @@ class ItemSize {
 
   bool get hasStock => stock > 0;
 
-  ItemSize clone() {
+  ItemSize clone(){
     return ItemSize(
       name: name,
       price: price,
@@ -21,7 +22,7 @@ class ItemSize {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap(){
     return {
       'name': name,
       'price': price,

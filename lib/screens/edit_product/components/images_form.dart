@@ -56,31 +56,30 @@ class ImagesForm extends StatelessWidget {
                     ],
                   );
                 }).toList()..add(
-                    Material(
-                      color: Colors.grey[100],
-                      child: IconButton(
-                        icon: Icon(Icons.add_a_photo),
-                        color: Theme.of(context).primaryColor,
-                        iconSize: 50,
-                        onPressed: (){
-                          if(Platform.isAndroid) {
-                            showModalBottomSheet(
-                                context: context,
-                                builder: (_) => ImageSourceSheet(
-                                  onImageSelected: onImageSelected,
-                                )
-                            );
-                          } else {
-                            showCupertinoModalPopup(
-                                context: context,
-                                builder: (_) => ImageSourceSheet(
-                                  onImageSelected: onImageSelected,
-                                )
-                            );
-                          }
-                        },
-                      ),
-                    )
+                  Material(
+                    color: Colors.grey[100],
+                    child: IconButton(
+                      icon: Icon(Icons.add_a_photo),
+                      color: Theme.of(context).primaryColor,
+                      iconSize: 50,
+                      onPressed: (){
+                        if(Platform.isAndroid)
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (_) => ImageSourceSheet(
+                                onImageSelected: onImageSelected,
+                              )
+                          );
+                        else
+                          showCupertinoModalPopup(
+                              context: context,
+                              builder: (_) => ImageSourceSheet(
+                                onImageSelected: onImageSelected,
+                              )
+                          );
+                      },
+                    ),
+                  )
                 ),
                 dotSize: 4,
                 dotSpacing: 15,

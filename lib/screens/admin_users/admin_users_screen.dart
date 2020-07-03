@@ -1,8 +1,10 @@
 import 'package:alphabet_list_scroll_view/alphabet_list_scroll_view.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/admin_user_managers.dart';
-import 'package:provider/provider.dart';
 import 'package:lojavirtual/common/custom_drawer/custom_drawer.dart';
+import 'package:lojavirtual/models/admin_orders_manager.dart';
+import 'package:lojavirtual/models/admin_users_manager.dart';
+import 'package:lojavirtual/models/page_manager.dart';
+import 'package:provider/provider.dart';
 
 class AdminUsersScreen extends StatelessWidget {
   @override
@@ -31,11 +33,17 @@ class AdminUsersScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
+                onTap: (){
+                  context.read<AdminOrdersManager>().setUserFilter(
+                    adminUsersManager.users[index]
+                  );
+                  context.read<PageManager>().setPage(5);
+                },
               );
             },
             highlightTextStyle: TextStyle(
-                color: Colors.white,
-                fontSize: 20
+              color: Colors.white,
+              fontSize: 20
             ),
             indexedHeight: (index) => 80,
             strList: adminUsersManager.names,
